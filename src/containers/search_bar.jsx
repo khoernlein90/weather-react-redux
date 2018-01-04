@@ -13,14 +13,13 @@ class SearchBar extends Component {
     }
 
     onInputChange(event){
-        console.log(event.target.value)
         this.setState({ term: event.target.value })
     }
 
     onFormSubmit(event){
         event.preventDefault();
         this.props.fetchWeather(this.state.term);
-        // this.setState({ term: "" });
+        this.setState({ term: "" });
     }
 
     render(){
@@ -40,7 +39,7 @@ class SearchBar extends Component {
         )
     }
 }
-
+// CONNECTS OUR FETCH WEATHER FUNCTION AS A PROP TO SEARCHBAR
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({ fetchWeather }, dispatch)
 }
